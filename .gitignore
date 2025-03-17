@@ -1,0 +1,18 @@
+# Go binaries
+*.exe
+*.out
+*.o
+
+# Go modules
+/go/pkg
+/go/bin
+
+# Editor files
+.idea/
+.vscode/
+
+# Log files
+*.log
+
+# Env files
+.env
