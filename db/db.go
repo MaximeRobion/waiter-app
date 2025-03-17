@@ -2,6 +2,8 @@ package db
 
 import (
 	"log"
+	"os"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite" // SQLite driver
 )
@@ -11,7 +13,8 @@ var DB *gorm.DB
 // InitDB initializes the database connection
 func InitDB() {
 	var err error
-	DB, err = gorm.Open("sqlite3", "test.db") // You can also use environment variables for DB name
+	dbName := os.Getenv("DB")
+	DB, err = gorm.Open("sqlite3", dbName)
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
